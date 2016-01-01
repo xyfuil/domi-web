@@ -25,6 +25,14 @@ angular.module('domiWeb').config(function($stateProvider, $urlRouterProvider) {
 
 angular.module('domiWeb').run(function($rootScope) {
 
+  $rootScope.host = 'http://10.10.10.10';
+  $rootScope.startTime = '2015-06-01';
+  var now = new Date() ;
+  var nowYear = now.getFullYear();
+  var nowMonth = now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1;
+  var nowDay = now.getDate() < 10 ? "0" + now.getDate() : now.getDate();
+  $rootScope.endTime = nowYear+"-"+nowMonth+"-"+nowDay;
+
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;
         if (phase === '$apply' || phase === '$digest') {

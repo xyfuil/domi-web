@@ -7,6 +7,9 @@ bower_components/
 # idea_config
 .idea/
 
+# dist
+dist/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
