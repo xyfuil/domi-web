@@ -2,6 +2,10 @@ angular.module('domiWeb', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
 
 angular.module('domiWeb').config(function($stateProvider, $urlRouterProvider) {
 
+    $stateProvider.state('index', {
+        url: '/index',
+        templateUrl: 'partial/index/index.html'
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/home');
 
