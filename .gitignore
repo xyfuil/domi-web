@@ -4,6 +4,9 @@ node_modules/
 # bower_components
 bower_components/
 
+# idea_config
+.idea/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
