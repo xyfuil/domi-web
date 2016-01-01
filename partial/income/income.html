@@ -1,0 +1,35 @@
+<div class="container" id="incomeMain" ng-controller="ConsumeCtrl">
+  <form class="form-horizontal">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">用户</div>
+          <select class="form-control" title="user" name="user">
+            <option>罗孟龙</option>
+            <option>张军伟</option>
+            <option>唐兴</option>
+            <option>段文炜</option>
+            <option>郑王龙</option>
+            <option>张志辉</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">价格</div>
+          <input type="number" class="form-control" id="price" name="price" step="0.01" placeholder="请输入价格..." required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-4">
+        <input type="button" class="btn btn-primary" id="ok" value="确定" style="width:100%">
+      </div>
+      <div class="col-xs-4">
+        <input type="button" class="btn btn-default" id="cancel" value="取消" style="width:100%">
+      </div>
+    </div>
+  </form>
+</div>

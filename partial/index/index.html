@@ -1,4 +1,17 @@
-<div class="col-md-12" ng-controller="IndexCtrl">
-
-
+<div class="col-md-12" id="indexMain" ng-controller="IndexCtrl">
+  <form class="form">
+    <div class="form-group">
+      <label class="col-xs-offset-1 col-xs-1 control-label">时间</label>
+      <div class="col-xs-3">
+        <input type="date" class="form-control" name="startTime" title="开始时间" id="startTime">
+      </div>
+      <label class="col-xs-1 control-label"><span class="glyphicon glyphicon-minus"></span></label>
+      <div class="col-xs-3">
+        <input type="date" class="form-control" name="endTime" title="结束时间" id="endTime">
+      </div>
+      <div class="col-xs-2">
+        <input id="sub" type="button" class="btn btn-primary" value="查询">
+      </div>
+    </div>
+  </form>
 </div>

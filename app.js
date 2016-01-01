@@ -6,8 +6,20 @@ angular.module('domiWeb').config(function($stateProvider, $urlRouterProvider) {
         url: '/index',
         templateUrl: 'partial/index/index.html'
     });
+    $stateProvider.state('detail', {
+        url: '/detail/:page',
+        templateUrl: 'partial/detail/detail.html'
+    });
+    $stateProvider.state('consume', {
+        url: '/consume',
+        templateUrl: 'partial/consume/consume.html'
+    });
+    $stateProvider.state('income', {
+        url: '/income',
+        templateUrl: 'partial/income/income.html'
+    });
     /* Add New States Above */
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/index');
 
 });
 
