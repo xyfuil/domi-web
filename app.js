@@ -18,6 +18,10 @@ angular.module('domiWeb').config(function($stateProvider, $urlRouterProvider) {
         url: '/income',
         templateUrl: 'partial/income/income.html'
     });
+    $stateProvider.state('conEdit', {
+        url: '/conEdit/:id',
+        templateUrl: 'partial/conEdit/conEdit.html'
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/index');
 

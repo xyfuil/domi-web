@@ -1,4 +1,4 @@
-<div class="container" id="incomeMain" ng-controller="IncomeCtrl">
+<div class="container" id="consumeMain" ng-controller="ConeditCtrl">
   <form class="form-horizontal">
     <div class="col-xs-8 col-xs-offset-2">
       <div class="form-group">
@@ -23,9 +23,17 @@
         </div>
       </div>
     </div>
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">用途</div>
+          <input type="text" class="form-control" ng-model="form.usage" placeholder="请输入用途..." required>
+        </div>
+      </div>
+    </div>
     <div class="form-group">
       <div class="col-xs-offset-2 col-xs-4">
-        <input type="button" class="btn btn-primary" ng-click="submit()" value="确定">
+        <input type="button" class="btn btn-primary" ng-click="submit()" value="更新">
       </div>
       <div class="col-xs-4">
         <input type="button" class="btn btn-default" ui-sref="index" value="取消">
