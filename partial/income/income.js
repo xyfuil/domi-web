@@ -3,7 +3,7 @@ angular.module('domiWeb').controller('IncomeCtrl', ['$scope', 'util', function($
 
   var req = {
     method: 'POST',
-    url: $scope.host + '/income',
+    url: $scope.host + '/incomeAdd',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },

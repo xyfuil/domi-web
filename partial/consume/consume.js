@@ -3,7 +3,7 @@ angular.module('domiWeb').controller('ConsumeCtrl', ['$scope', 'util', function(
 
   var req = {
     method: 'POST',
-    url: $scope.host + '/consume',
+    url: $scope.host + '/consumeAdd',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },

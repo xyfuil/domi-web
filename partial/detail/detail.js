@@ -9,13 +9,13 @@ angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$st
 
   var getReq = {
     method: 'POST',
-    url: $scope.host + '/info',
+    url: $scope.host + '/consume',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     data: {
-      'startTime': $rootScope.startTime,
-      'endTime': $rootScope.endTime,
+      'start': Date.parse(new Date($rootScope.startTime)),
+      'end': Date.parse(new Date($rootScope.endTime)),
       'page': $stateParams.page
     },
     transformRequest: util.transformData
@@ -23,7 +23,9 @@ angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$st
 
   $scope.getData = function () {
     $http(getReq).success(function(data, status, headers, config) {
-      $scope.items = data.consume;
+      console.log(data);
+      $scope.items = data[0].data;
+      $scope.pages = data[0].show_page.split(',');
       return 0;
     }).error(function() {
       return console.log('err');
@@ -45,7 +47,6 @@ angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$st
     delReq.data.id = id;
     $http(delReq).success(function(data, status, headers, config) {
       $scope.getData();
-      return 0;
     }).error(function() {
       return console.log('err');
     });

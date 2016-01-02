@@ -12,7 +12,6 @@ angular.module('domiWeb').controller('ConeditCtrl', ['$scope', '$stateParams', '
   };
 
   $http(getReq).success(function(data, status, headers, config) {
-    console.log(data);
     $scope.form = data;
     return 0;
   }).error(function() {

@@ -29,7 +29,10 @@ angular.module('domiWeb').config(function($stateProvider, $urlRouterProvider) {
 
 angular.module('domiWeb').run(function($rootScope) {
 
-  $rootScope.host = 'http://10.10.10.10';
+  //$rootScope.host = 'http://10.10.10.10';
+  $rootScope.host = 'http://10.10.10.103:8080/test';
+
+  $rootScope.left = 0;
   $rootScope.startTime = '2015-06-01';
   var now = new Date() ;
   var nowYear = now.getFullYear();
