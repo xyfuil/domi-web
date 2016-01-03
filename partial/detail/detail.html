@@ -23,6 +23,8 @@
     </tbody>
   </table>
   <div class="pages">
-    <button ng-repeat="i in pages" class="btn btn-default" ng-class="{'active': curPage == '{{i}}'}" ui-sref="detail({ page: i })">{{i}}</button>
+    <button class="btn btn-default" ng-click="toPage('<')" ng-show="left">&lt;</button>
+    <button ng-repeat="i in pages" class="btn btn-default" ng-class="{'active': curPage == '{{i}}'}" ng-click="toPage(i)">{{i}}</button>
+    <button class="btn btn-default" ng-click="toPage('>')" ng-show="right">&gt;</button>
   </div>
 </div>

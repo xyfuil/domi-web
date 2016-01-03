@@ -1,7 +1,9 @@
-angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$stateParams', '$http', 'util', function($scope, $rootScope, $stateParams, $http, util){
+angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$http', '$window', 'util', function($scope, $rootScope, $state, $stateParams, $http, $window, util){
   $scope.items = [];
   $scope.curPage = $stateParams.page;
   $scope.pages = [1];
+  $scope.left = 0;
+  $scope.right = 0;
 
   $scope.changeDate = function (stamp) {
     return util.stamp2date(stamp);
@@ -23,12 +25,12 @@ angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$st
 
   $scope.getData = function () {
     $http(getReq).success(function(data, status, headers, config) {
-      console.log(data);
-      $scope.items = data[0].data;
-      $scope.pages = data[0].show_page.split(',');
-      return 0;
+      $scope.items = data.data;
+      $scope.pages = data.show_page.split(',');
+      $scope.left = data.left;
+      $scope.right = data.right;
     }).error(function() {
-      return console.log('err');
+      console.log('err');
     });
   };
 
@@ -43,13 +45,24 @@ angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$st
   };
 
   $scope.delete = function (id) {
-    console.log(id);
-    delReq.data.id = id;
-    $http(delReq).success(function(data, status, headers, config) {
-      $scope.getData();
-    }).error(function() {
-      return console.log('err');
-    });
+    var r = $window.confirm('是否删除？');
+    if (r === true) {
+      delReq.data.id = id;
+      $http(delReq).success(function(data, status, headers, config) {
+        $scope.getData();
+      }).error(function() {
+        console.log('err');
+      });
+    }
+  };
+
+  $scope.toPage = function (page) {
+    if (page === '<') {
+      page = ~~$scope.curPage - 1;
+    } else if (page === '>') {
+      page = ~~$scope.curPage + 1;
+    }
+    $state.go('detail', {page: page});
   };
 
   $scope.getData();

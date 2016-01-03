@@ -1,4 +1,4 @@
-angular.module('domiWeb').controller('ConeditCtrl', ['$scope', '$stateParams', '$http', 'util', function($scope, $stateParams, $http, util){
+angular.module('domiWeb').controller('ConeditCtrl', ['$scope', '$state', '$stateParams', '$http', '$window', 'util', function($scope, $state, $stateParams, $http, $window, util){
   $scope.form = {'id': $stateParams.id};
 
   var getReq = {
@@ -13,12 +13,11 @@ angular.module('domiWeb').controller('ConeditCtrl', ['$scope', '$stateParams', '
 
   $http(getReq).success(function(data, status, headers, config) {
     $scope.form = data;
-    return 0;
   }).error(function() {
-    return console.log('err');
+    console.log('err');
   });
 
-  var req = {
+  var updateReq = {
     method: 'POST',
     url: $scope.host + '/consumeUpdate',
     headers: {
@@ -30,5 +29,12 @@ angular.module('domiWeb').controller('ConeditCtrl', ['$scope', '$stateParams', '
 
   $scope.submit = function () {
     console.log($scope.form);
+    updateReq.data = $scope.form;
+    $http(updateReq).success(function(data, status, headers, config) {
+      $window.alert('更新成功！');
+      $state.go('detail', {page:1});
+    }).error(function() {
+      console.log('err');
+    });
   };
 }]);
