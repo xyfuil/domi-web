@@ -65,5 +65,6 @@ angular.module('domiWeb').controller('DetailCtrl', ['$scope', '$rootScope', '$st
     $state.go('detail', {page: page});
   };
 
+  util.getLeft();
   $scope.getData();
 }]);

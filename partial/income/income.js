@@ -1,4 +1,4 @@
-angular.module('domiWeb').controller('IncomeCtrl', ['$scope', 'util', function($scope, util){
+angular.module('domiWeb').controller('IncomeCtrl', ['$scope', '$state', '$http', '$window', 'util', function($scope, $state, $http, $window, util){
   $scope.form = {};
 
   var req = {
