@@ -13,5 +13,12 @@ angular.module('domiWeb').controller('IncomeCtrl', ['$scope', 'util', function($
 
   $scope.submit = function () {
     console.log($scope.form);
+    req.data = $scope.form;
+    $http(req).success(function(data, status, headers, config) {
+      $window.alert('添加成功！');
+      $state.go('detail', {page:1});
+    }).error(function() {
+      console.log('err');
+    });
   };
 }]);

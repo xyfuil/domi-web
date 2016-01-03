@@ -1,4 +1,4 @@
-angular.module('domiWeb').controller('ConsumeCtrl', ['$scope', 'util', function($scope, util){
+angular.module('domiWeb').controller('ConsumeCtrl', ['$scope', '$state', '$window', '$http', 'util', function($scope, $state, $window, $http, util){
   $scope.form = {};
 
   var req = {
@@ -13,5 +13,12 @@ angular.module('domiWeb').controller('ConsumeCtrl', ['$scope', 'util', function(
 
   $scope.submit = function () {
     console.log($scope.form);
+    req.data = $scope.form;
+    $http(req).success(function(data, status, headers, config) {
+      $window.alert('添加成功！');
+      $state.go('detail', {page:1});
+    }).error(function() {
+      console.log('err');
+    });
   };
 }]);
